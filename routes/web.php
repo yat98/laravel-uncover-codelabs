@@ -29,3 +29,12 @@ Route::get('study', function () {
 Route::get('student/stem/john', function () {
     echo '<h2 style="text-align:center"><u>Welcome John</u></h2>';
 });
+
+
+Route::get('student/{name}', function ($name) {
+    return "Show student data {$name}";
+});
+
+Route::get('stock/{type}/{merk}', function ($t, $m) {
+    return "Check remaining stock {$m} {$t}";
+});
