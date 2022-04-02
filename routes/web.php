@@ -42,3 +42,9 @@ Route::get('stock/{type?}/{merk?}', function ($t = 'samsung', $m = 'smartphone')
 Route::get('user/{id}', function ($id) {
     return "Show user data {$id}";
 })->where('id','[A-Z]{2}[0-9]+');
+
+Route::get('contact-us',function () {
+    return '<h1>Contact Us</h1>';
+});
+
+Route::redirect('contact','contact-us');
