@@ -60,3 +60,7 @@ Route::prefix('admin')->group(function ($route) {
         echo '<h1>Employee List</h1>';
     });
 });
+
+Route::fallback(function () {
+    return 'Sorry, page not found';
+});
