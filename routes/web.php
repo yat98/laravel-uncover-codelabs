@@ -64,3 +64,13 @@ Route::prefix('admin')->group(function ($route) {
 Route::fallback(function () {
     return 'Sorry, page not found';
 });
+
+Route::get('book/{a}', function($a) {
+    return "Book {$a}";
+});
+Route::get('book/{b}', function($b) {
+    return "My book {$b}";
+});
+Route::get('book/{c}', function($c) {
+    return "Our book {$c}";
+});
