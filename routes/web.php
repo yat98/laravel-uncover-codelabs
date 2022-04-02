@@ -48,3 +48,15 @@ Route::get('contact-us',function () {
 });
 
 Route::redirect('contact','contact-us');
+
+Route::prefix('admin')->group(function ($route) {
+    $route->get('student', function () {
+        echo '<h1>Student List</h1>';
+    });
+    $route->get('teacher', function () {
+        echo '<h1>Teacher List</h1>';
+    });
+    $route->get('employee', function () {
+        echo '<h1>Employee List</h1>';
+    });
+});
