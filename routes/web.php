@@ -30,6 +30,9 @@ Route::get('student/stem/john', function () {
     echo '<h2 style="text-align:center"><u>Welcome John</u></h2>';
 });
 
+Route::get('student/andi', function () {
+    return 'Student page Andi';
+});
 
 Route::get('student/{name}', function ($name) {
     return "Show student data {$name}";
