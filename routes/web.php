@@ -38,3 +38,7 @@ Route::get('student/{name}', function ($name) {
 Route::get('stock/{type?}/{merk?}', function ($t = 'samsung', $m = 'smartphone') {
     return "Check remaining stock {$m} {$t}";
 });
+
+Route::get('user/{id}', function ($id) {
+    return "Show user data {$id}";
+})->where('id','[A-Z]{2}[0-9]+');
