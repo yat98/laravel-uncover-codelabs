@@ -35,6 +35,6 @@ Route::get('student/{name}', function ($name) {
     return "Show student data {$name}";
 });
 
-Route::get('stock/{type}/{merk}', function ($t, $m) {
+Route::get('stock/{type?}/{merk?}', function ($t = 'samsung', $m = 'smartphone') {
     return "Check remaining stock {$m} {$t}";
 });
