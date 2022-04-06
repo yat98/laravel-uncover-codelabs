@@ -19,5 +19,19 @@ Route::get('/', function () {
 });
 
 Route::get('student', function () {
-    return View::make('university.student');
+    $students = [
+        'Risa Lestari',
+        'Rudi Hermawan',
+        'Bambang Kusumo',
+        'Lisa Permata',
+    ];
+    // return view('university.student', ['students' => $students]);
+    // return view('university.student')->with('students', $students);
+    // return view('university.student')->withStudents($students);
+    // return view('university.student', compact('students'));
+    return view('university.student')->with(compact('students'));
+});
+
+Route::get('student/{name}/{age}/{city}', function ($name, $age, $city) {
+    return view('university.detail-student', compact('name', 'age', 'city'));
 });

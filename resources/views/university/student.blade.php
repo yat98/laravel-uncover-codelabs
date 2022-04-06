@@ -9,9 +9,11 @@
 <body>
     <h1>Student List</h1>
     <ol>
-        <li>John Doe</li>
-        <li>Hidayat Chandra</li>
-        <li>Rudy</li>
+        <?php
+            foreach ($students as $student) {
+                echo "<li>{$student}</li>";
+            }    
+        ?>
     </ol>
     <div>
         Copyright © <?= date('Y') ?> Duniailkom
