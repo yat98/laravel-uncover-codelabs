@@ -13,5 +13,8 @@
         <li>Hidayat Chandra</li>
         <li>Rudy</li>
     </ol>
+    <div>
+        Copyright © <?= date('Y') ?> Duniailkom
+    </div>
 </body>
 </html>
