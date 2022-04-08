@@ -15,6 +15,20 @@
         <h1 class="bg-dark px-3 py-1 text-white d-inline-block">
             {{ $grade }}
         </h1>
+        <br>
+        @if ($grade > 0 && $grade < 50)
+            <div class="alert alert-danger d-inline-block">
+                Maaf, anda tidak lulus
+            </div>  
+        @elseif ($grade > 50 && $grade < 100)
+            <div class="alert alert-success d-inline-block">
+                Selamat, anda lulus
+            </div>
+        @else
+            <div class="alert alert-secondary d-inline-block">
+                Nilai tidak valid
+            </div>
+        @endif
     </div>
     <div class="container text-center mt-3 pt-3 bg-white">
         <h1 class="bg-dark px-3 py-1 text-white d-inline-block">
