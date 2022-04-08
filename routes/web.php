@@ -22,5 +22,7 @@ Route::get('student', function () {
     $name = 'Tya Kirana Putri';
     $nameUnscape = "<u>{$name}</u>";
     $grade = 75;
-    return view('student', compact('name', 'grade', 'nameUnscape'));
+    // $grades = [];
+    $grades = [80,64,30,76,95];
+    return view('student', compact('name', 'grade', 'nameUnscape', 'grades'));
 });

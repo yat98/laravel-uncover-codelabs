@@ -73,6 +73,29 @@
             {{ date(now()) }}
         </h1>
     </div>
+    <div class="container text-center mt-3 pt-3 bg-white">
+        @if (empty($grades))
+            <div class="alert alert-secondary d-inline-block">
+                Tidak ada data...
+            </div>
+        @else
+            @foreach ($grades as $grade)
+                @if ($grade > 0 && $grade < 50)
+                    <div class="alert alert-danger d-inline-block">
+                        {{ $grade }}
+                    </div>  
+                @elseif ($grade > 50 && $grade < 100)
+                    <div class="alert alert-success d-inline-block">
+                        {{ $grade }}
+                    </div>
+                @else
+                    <div class="alert alert-secondary d-inline-block">
+                        {{ $grade }}
+                    </div>
+                @endif
+            @endforeach
+        @endif
+    </div>
     <div class="container text-center mt-3 pt-3 bg-white">        
         <?php $i = 0 ?>
         @while ($i < 5)
