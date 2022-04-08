@@ -128,7 +128,7 @@
             </div>
         @endforelse
     </div>
-    <div class="container text-center mt-3 pt-3 bg-white">        
+    {{-- <div class="container text-center mt-3 pt-3 bg-white">        
         <?php $i = 0 ?>
         @while ($i < 5)
             <h1 class="alert alert-info d-inline-block">
@@ -136,6 +136,11 @@
             </h1>
             <?php $i++ ?>
         @endwhile
+    </div> --}}
+    <div class="container text-center mt-3 pt-3 bg-white">
+        @php
+            var_dump($grades)
+        @endphp
     </div>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/popper.min.js"></script>
