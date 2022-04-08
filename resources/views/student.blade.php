@@ -97,6 +97,17 @@
         @endif
     </div>
     <div class="container text-center mt-3 pt-3 bg-white">
+        @foreach ($grades as $grade)
+            @if ($grade < 50)
+                {{-- @continue --}}
+                @break
+            @endif
+            <div class="alert alert-success d-inline-block">
+                {{ $grade }}
+            </div>
+        @endforeach
+    </div>
+    <div class="container text-center mt-3 pt-3 bg-white">
         @forelse ($grades as $grade)
             @if ($grade > 0 && $grade < 50)
                 <div class="alert alert-danger d-inline-block">
