@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('student', function () {
+    $name = 'Tya Kirana Putri';
+    $nameUnscape = "<u>{$name}</u>";
+    $grade = 75;
+    return view('student', compact('name', 'grade', 'nameUnscape'));
+});
