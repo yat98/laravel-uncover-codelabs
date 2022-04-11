@@ -15,9 +15,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link @yield('menuStudent')"href="/student">Student</a>
-                    <a class="nav-link @yield('menuLecture')" href="/lecture">Lecture</a>
-                    <a class="nav-link @yield('menuGallery')" href="/gallery">Gallery</a>
+                    <a class="nav-link @yield('menuStudent')"href="{{ route('student') }}">Student</a>
+                    <a class="nav-link @yield('menuLecture')" href="{{ route('lecture') }}">Lecture</a>
+                    <a class="nav-link @yield('menuGallery')" href="{{ route('image') }}">Gallery</a>
+                    <a class="nav-link @yield('menuGallery')" href="{{ route('information',['faculty'=>'MIPA','department'=>'Biology']) }}">Information</a>
                 </div>
             </div>
         </div>
