@@ -1,4 +1,4 @@
-@include('layouts.header')
+@include('layouts.header', ['title' => 'Lecture List'])
 <div class="container text-center mt-3 p-4 bg-white">
     <h1>Lecture List</h1>
     <div class="row">
