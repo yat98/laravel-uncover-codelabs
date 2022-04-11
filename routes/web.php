@@ -29,3 +29,4 @@ Route::get('lecture', function () {
 });
 
 Route::view('gallery','gallery');
+Route::view('admin','admin');
