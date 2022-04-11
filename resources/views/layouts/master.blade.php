@@ -22,7 +22,9 @@
             </div>
         </div>
     </nav>
-    @yield('content')
+    @section('content')
+        <div class="alert alert-info text-center">Student Information System</div>
+    @show
     <footer class="bg-dark py-4 text-white mt-4">
         <div class="container">
             Student Information System | Copyright © {{ date("Y") }} Duniailkom

@@ -3,6 +3,7 @@
 @section('menuStudent', 'active')
 
 @section('content')
+    @parent
     <div class="container text-center mt-3 p-4 bg-white">
         <h1>Student List</h1>
         <div class="row">
