@@ -19,10 +19,13 @@ Route::get('/', function () {
 
 
 Route::get('student', function () {
-    $name = 'Tya Kirana Putri';
-    $nameUnscape = "<u>{$name}</u>";
-    $grade = 75;
-    // $grades = [];
-    $grades = [80,64,30,76,95];
-    return view('student', compact('name', 'grade', 'nameUnscape', 'grades'));
+    $students = ['Risa Lestari', 'Rudi Hermawan', 'Bambang Kusumo', 'Lisa Permata'];
+    return view('student', compact('students'));
 });
+
+Route::get('lecture', function () {
+    $lectures = ['Maya Fitrianti, M.M.', 'Prof. Silvia Nst, M.Farm.', 'Dr. Umar Agustinus', 'Dr. Syahrial, M.Kom.'];
+    return view('lecture', compact('lectures'));
+});
+
+Route::view('gallery','gallery');

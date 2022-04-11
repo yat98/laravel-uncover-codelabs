@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Student List</title>
+    <title>Gallery</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 <body class="bg-light">
@@ -15,24 +15,39 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="/student">Student</a>
+                    <a class="nav-link"  href="/student">Student</a>
                     <a class="nav-link" href="/lecture">Lecture</a>
-                    <a class="nav-link" href="/gallery">Gallery</a>
+                    <a class="nav-link active" aria-current="page" href="/gallery">Gallery</a>
                 </div>
             </div>
         </div>
     </nav>
     <div class="container text-center mt-3 p-4 bg-white">
-        <h1>Student List</h1>
+        <h1>Gallery</h1>
         <div class="row">
-            <div class="col-sm-8 col-md-6 m-auto">
-                <ol class="list-group">
-                    @forelse ($students as $student)
-                        <li class="list-group-item">{{ $student }}</li>
-                    @empty
-                        <div class="alert alert-dark d-inline-block">Tidak ada data...</div>
-                    @endforelse
-                </ol>
+            <div class="col-4">
+                <img src="https://source.unsplash.com/cXUOQWdRV4I/350x250"
+                class="img-thumbnail img-fluid">
+            </div>
+            <div class="col-4">
+                <img src="https://source.unsplash.com/kfwPJieZVwI/350x250"
+                class="img-thumbnail img-fluid">
+            </div>
+            <div class="col-4">
+                <img src="https://source.unsplash.com/8CqDvPuo_kI/350x250"
+                class="img-thumbnail img-fluid">
+            </div>
+            <div class="col-4 mt-4">
+                <img src="https://source.unsplash.com/JdzHrfX4l4Q/350x250"
+                class="img-thumbnail img-fluid">
+            </div>
+            <div class="col-4 mt-4">
+                <img src="https://source.unsplash.com/T-tVt4xsCdE/350x250"
+                class="img-thumbnail img-fluid">
+            </div>
+            <div class="col-4 mt-4">
+                <img src="https://source.unsplash.com/F8t2VGnI47I/350x250"
+                class="img-thumbnail img-fluid">
             </div>
         </div>
     </div>
