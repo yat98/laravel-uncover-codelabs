@@ -1,0 +1,10 @@
+$backgroundColor: #beaa34;
+$textColor : #ffffff;
+
+h1 {
+    background-color: $backgroundColor;
+    color: $textColor;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+}
