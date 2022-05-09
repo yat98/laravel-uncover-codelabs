@@ -12,6 +12,9 @@ const mix = require('laravel-mix');
  */
 
 mix.scripts([
+    'resources/js/jquery-3.6.0.min.js',
+    'resources/js/popper.min.js',
+    'resources/js/bootstrap.min.js',
     'resources/js/my-script.js',
     'resources/js/my-script-console.js',
 ], 'public/js/app.js')

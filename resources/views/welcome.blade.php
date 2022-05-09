@@ -9,6 +9,11 @@
 </head>
 <body>
     <h1>Laravel Study</h1>
+    <div class="container text-center py-5">
+        <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Busy.." data-bs-content="Laravel Uncover is the best!">
+            Laravel Study
+        </button>
+    </div>
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>
