@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function index(){
-        return 'Home Page';
+        return view('welcome');
     }
 
     public function show(){
-        return 'Student data';
+        $students = ["Risa Lestari","Rudi Hermawan","Bambang Kusumo","Lisa Permata"];
+        return view('student', compact('students'));
     }
 }
