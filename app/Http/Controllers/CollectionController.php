@@ -84,7 +84,30 @@ class CollectionController extends Controller
     }
 
     public function fifthCollection(){
-
+        $collections = collect([
+            ['namaProduk' => 'Laptop A', 'harga' => 59990000],
+            ['namaProduk' => 'Smartphone B', 'harga' => 1599000],
+            ['namaProduk' => 'Speaker C', 'harga' => 350000],
+        ]);
+        dump($collections);
+        dump($collections->sortBy('harga'));
+        dump($collections->sortByDesc('harga'));
+        dump($collections->sortBy('harga')->all());
+        $collections->sortBy('harga')->each(function ($val, $key){
+            echo $val['namaProduk'].'<br>';
+        });
+        $results = $collections->filter(function ($val, $key){
+            return $val['harga'] < 2000000;
+        });
+        dump($results);
+        dump($collections->where('harga', 350000));
+        dump($collections->where('harga', '>=', 350000));
+        dump($collections->firstWhere('harga', 350000));
+        dump($collections->whereBetween('harga', [100000, 2000000]));
+        dump($collections->whereNotBetween('harga', [100000, 2000000]));
+        dump($collections->whereIn('harga', [1599000, 2999000, 3999000]));
+        dump($collections->whereNotIn('harga', [1599000, 2999000, 3999000]));
+        dump($collections->pluck('namaProduk'));
     }
 
     public function sixthCollection(){
