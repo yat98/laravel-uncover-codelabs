@@ -25,3 +25,4 @@ Route::get('third', [CollectionController::class , 'thirdCollection']);
 Route::get('fourth', [CollectionController::class , 'fourthCollection']);
 Route::get('fifth', [CollectionController::class , 'fifthCollection']);
 Route::get('sixth', [CollectionController::class , 'sixthCollection']);
+Route::get('exercise', [CollectionController::class , 'exercise']);

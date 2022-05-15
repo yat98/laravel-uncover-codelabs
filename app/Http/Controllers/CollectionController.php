@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use stdClass;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
@@ -111,7 +112,72 @@ class CollectionController extends Controller
     }
 
     public function sixthCollection(){
+        $firstStudent = new stdClass();
+        $firstStudent->name = 'Rian';
+        $firstStudent->school = 'SMK Pelita Ibu';
+        $firstStudent->major = 'STEM';
 
+        $secondStudent = new stdClass();
+        $secondStudent->name = 'Nova';
+        $secondStudent->school = 'SMA 2 Kota Baru';
+        $secondStudent->major = 'STEM';
+
+        $thirdStudent = new stdClass();
+        $thirdStudent->name = 'Rudi';
+        $thirdStudent->school = 'MA Al-Hidayah';
+        $thirdStudent->major = 'Economic';
+
+        $students = collect([
+            0 => $firstStudent,
+            1 => $secondStudent,
+            2 => $thirdStudent,
+        ]);
+        dump($students);
+        dump($students[0]->name);
+        dump($students[2]->school);
+        echo '<hr>';
+        foreach($students as $student){
+            echo $student->name.'<br>';
+        }
+        $student = $students->where('name','Nova')->first();
+        dump($student->name);
+        $student = $students->get(2);
+        dump($student);
+        $results = $students->groupBy('major');
+        dump($results);
+        $stem = $students->groupBy('major')->get('STEM')
+            ->pluck('name')->all();
+        dump('STEM students : '.implode(',', $stem));
     }
 
+    public function exercise(){
+        $matkul00 = new stdClass();
+        $matkul00->namaMatkul = "Sistem Operasi";
+        $matkul00->jumlahSks = 3;
+        $matkul00->semester = 3;
+
+        $matkul01 = new stdClass();
+        $matkul01->namaMatkul = "Algoritma dan Pemrograman";
+        $matkul01->jumlahSks = 4;
+        $matkul01->semester = 1;
+
+        $matkul02 = new stdClass();
+        $matkul02->namaMatkul = "Kalkulus Dasar";
+        $matkul02->jumlahSks = 2;
+        $matkul02->semester = 1;
+
+        $matkul03 = new stdClass();
+        $matkul03->namaMatkul = "Basis Data";
+        $matkul03->jumlahSks = 2;
+        $matkul03->semester = 3;
+
+        $matkuls = collect([$matkul00, $matkul01, $matkul02, $matkul03]);
+        $thirdSemester = $matkuls->where('semester', 3)->pluck('namaMatkul')->all();
+        dump('Nama mata kuliah di semester 3: '.implode(',', $thirdSemester));
+        $biggestSks = $matkuls->sortByDesc('jumlahSks')->pluck('jumlahSks', 'namaMatkul')
+            ->map(function($val, $key){
+                return $key." ($val)";
+            })->all();
+        dump('Nama mata kuliah: '.implode(', ', $biggestSks));
+    }
 }
