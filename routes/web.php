@@ -24,3 +24,4 @@ Route::get('delete', [StudentController::class,'delete']);
 Route::get('select', [StudentController::class,'select']);
 Route::get('select-view', [StudentController::class,'selectView']);
 Route::get('select-where', [StudentController::class,'selectWhere']);
+Route::get('statement', [StudentController::class,'statement']);

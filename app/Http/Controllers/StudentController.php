@@ -80,4 +80,10 @@ class StudentController extends Controller
         $results = DB::select('SELECT * FROM students WHERE gpa > 3 ORDER BY name ASC');
         return view('view-students',compact('results'));
     }
+
+    public function statement()
+    {
+        $results = DB::statement('TRUNCATE students');
+        return 'Student table has been empty';
+    }
 }
