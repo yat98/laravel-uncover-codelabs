@@ -21,3 +21,6 @@ Route::get('insert-prepared', [StudentController::class,'insertPrepared']);
 Route::get('insert-named-binding', [StudentController::class,'insertNamedBinding']);
 Route::get('update', [StudentController::class,'update']);
 Route::get('delete', [StudentController::class,'delete']);
+Route::get('select', [StudentController::class,'select']);
+Route::get('select-view', [StudentController::class,'selectView']);
+Route::get('select-where', [StudentController::class,'selectWhere']);

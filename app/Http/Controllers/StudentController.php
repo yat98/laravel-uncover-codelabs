@@ -58,4 +58,26 @@ class StudentController extends Controller
         $results = DB::delete("DELETE FROM students WHERE name=?",['John Doe']);
         dump($results);
     }
+
+    public function select()
+    {
+        $results = DB::select('SELECT * FROM students');
+        echo $results[0]->id.'<br>';
+        echo $results[0]->nim.'<br>';
+        echo $results[0]->name.'<br>';
+        echo $results[0]->birthdate.'<br>';
+        echo $results[0]->gpa.'<br>';
+    }
+
+    public function selectView()
+    {
+        $results = DB::select('SELECT * FROM students');
+        return view('view-students',compact('results'));
+    }
+
+    public function selectWhere()
+    {
+        $results = DB::select('SELECT * FROM students WHERE gpa > 3 ORDER BY name ASC');
+        return view('view-students',compact('results'));
+    }
 }
