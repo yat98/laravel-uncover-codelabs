@@ -46,4 +46,10 @@ class StudentController extends Controller
         );
         dump($results);
     }
+
+    public function update()
+    {
+        $results = DB::update("UPDATE students SET created_at=now(), updated_at=now() WHERE nim=?",['49049364']);
+        dump($results);
+    }
 }
