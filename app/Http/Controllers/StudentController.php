@@ -52,4 +52,10 @@ class StudentController extends Controller
         $results = DB::update("UPDATE students SET created_at=now(), updated_at=now() WHERE nim=?",['49049364']);
         dump($results);
     }
+
+    public function delete()
+    {
+        $results = DB::delete("DELETE FROM students WHERE name=?",['John Doe']);
+        dump($results);
+    }
 }

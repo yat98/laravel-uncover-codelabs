@@ -20,3 +20,4 @@ Route::get('insert-timestamp', [StudentController::class,'insertTimestamp']);
 Route::get('insert-prepared', [StudentController::class,'insertPrepared']);
 Route::get('insert-named-binding', [StudentController::class,'insertNamedBinding']);
 Route::get('update', [StudentController::class,'update']);
+Route::get('delete', [StudentController::class,'delete']);
