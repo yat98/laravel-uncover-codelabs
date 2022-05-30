@@ -88,4 +88,84 @@ class StudentController extends Controller
 
         dump($results);
     }
+
+    public function get(){
+        $result = DB::table('students')->get();
+
+        dump($result);
+    }
+
+    public function getShow(){
+        $result = DB::table('students')->get();
+        echo $result[0]->id.'<br>';
+        echo $result[0]->nim.'<br>';
+        echo $result[0]->name.'<br>';
+        echo $result[0]->birthdate.'<br>';
+        echo $result[0]->gpa.'<br>';
+    }
+
+    public function getView(){
+        $students = DB::table('students')->get();
+        
+        return view('students', compact('students'));
+    }
+
+    public function getWhere(){
+        $students = DB::table('students')->where('gpa','<',3)
+            ->orderBy('name', 'DESC')
+            ->get();
+        
+        return view('students', compact('students'));
+    }
+
+    public function getSelect(){
+        $students = DB::table('students')
+            ->select('nim AS id', 'name')
+            ->get();
+        
+        dump($students);
+    }
+
+    public function getTake(){
+        $students = DB::table('students')->orderBy('name','ASC')
+            ->skip(1)
+            ->take(2)
+            ->get();
+        
+        return view('students', compact('students'));
+    }
+
+    public function getFirst(){
+        $students = [
+            DB::table('students')->where('name','John Doe')
+            ->first()
+        ];
+            
+        return view('students', compact('students'));
+    }
+
+    public function getFind(){
+        $students = [DB::table('students')->find(1)];
+            
+        return view('students', compact('students'));
+    }
+
+    public function getSelectRaw(){
+        $students = DB::table('students')->selectRaw('count(*) as total_student')
+            ->get();
+            
+        echo $students[0]->total_student;
+    }
+
+    public function index(){
+        $students = DB::table('students')->get();
+
+        return view('students.index',compact('students'));
+    }
+
+    public function show($nim){
+        $student = DB::table('students')->where('nim',$nim)->first();
+
+        return view('students.show',compact('student'));
+    }
 }
