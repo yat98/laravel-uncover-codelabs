@@ -81,4 +81,11 @@ class StudentController extends Controller
 
         dump($results);
     }
+
+    public function delete(){
+        $results = DB::table('students')->where('gpa', '>' ,3.1)
+            ->delete();
+
+        dump($results);
+    }
 }

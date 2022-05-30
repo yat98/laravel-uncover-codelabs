@@ -23,3 +23,4 @@ Route::get('insert-many', [StudentController::class, 'insertMany']);
 Route::get('update', [StudentController::class, 'update']);
 Route::get('update-where', [StudentController::class, 'updateWhere']);
 Route::get('update-or-insert', [StudentController::class, 'updateOrInsert']);
+Route::get('delete', [StudentController::class, 'delete']);
