@@ -42,4 +42,43 @@ class StudentController extends Controller
 
         dump($results);
     }
+
+    public function update(){
+        $results = DB::table('students')->where('name',  'John Doe')
+            ->update([
+                'birthdate' => '1992-01-03',
+                'gpa' => '3.10',
+                'updated_at' => now()
+            ]);
+
+        dump($results);
+    }
+
+    public function updateWhere(){
+        $results = DB::table('students')->where('gpa', '>', 3)
+            ->where('name', '!=', 'Alex')
+            ->update([
+                'birthdate' => '2010-01-01',
+                'updated_at' => now()
+            ]);
+
+        dump($results);
+    }
+
+    public function updateOrInsert(){
+        $results = DB::table('students')->updateOrInsert(
+            [
+                'nim' => '19005011',
+            ],
+            [
+                'name' => 'Brad Doe',
+                'birthdate' => '1993-11-30',
+                'gpa' => '2.26',
+                'created_at' => now(),
+                'updated_at' => now()
+            ]
+        );
+
+        dump($results);
+    }
 }
