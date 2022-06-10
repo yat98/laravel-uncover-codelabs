@@ -19,3 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('check-object', [StudentController::class, 'checkObject']);
+Route::get('insert', [StudentController::class, 'insert']);
+Route::get('mass-assignment', [StudentController::class, 'massAssignment']);
+Route::get('mass-assignment-two', [StudentController::class, 'massAssignmentTwo']);
