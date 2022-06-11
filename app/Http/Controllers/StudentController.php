@@ -11,15 +11,21 @@ class StudentController extends Controller
     }
 
     public function processForm(Request $request){
-        // echo $request->get('nim').'<br>';
-        // echo $request->input('nim').'<br>';
-        // echo request('nim').'<br>';
-        // echo data_get($request,'nim').'<br>';
-        echo $request->nim.'<br>';
-        echo $request->name.'<br>';
-        echo $request->email.'<br>';
-        echo $request->gender.'<br>';
-        echo $request->major.'<br>';
-        echo $request->address.'<br>';
+        $validateData = $request->validate([
+            'nim' => 'required|size:8',
+            'name' => 'required|min:3|max:50',
+            'email' => 'required|email',
+            'gender' => 'required|in:M,F',
+            'major' => 'required',
+            'address' => '',
+        ]);
+
+        dump($validateData);
+        echo $validateData['nim'].'<br>';
+        echo $validateData['name'].'<br>';
+        echo $validateData['email'].'<br>';
+        echo $validateData['gender'].'<br>';
+        echo $validateData['major'].'<br>';
+        echo $validateData['address'].'<br>';
     }
 }
