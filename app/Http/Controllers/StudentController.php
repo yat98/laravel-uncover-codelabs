@@ -142,4 +142,19 @@ class StudentController extends Controller
             ->get();
         return view('students',compact('students'));
     }
+
+    public function withTrashed(){
+        $students = Student::withTrashed()->get();
+        return view('students',compact('students'));
+    }
+
+    public function restore(){
+        $students = Student::withTrashed()->where('id',1)->restore();
+        return 'restore success';
+    }
+
+    public function forceDelete(){
+        $students = Student::where('id',1)->forceDelete();
+        return 'delete permanent success';
+    }
 }

@@ -34,3 +34,6 @@ Route::get('first', [StudentController::class, 'first']);
 Route::get('find', [StudentController::class, 'find']);
 Route::get('latest', [StudentController::class, 'latest']);
 Route::get('skip-take', [StudentController::class, 'skipTake']);
+Route::get('with-trashed', [StudentController::class, 'withTrashed']);
+Route::get('restore', [StudentController::class, 'restore']);
+Route::get('force-delete', [StudentController::class, 'forceDelete']);

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('birthdate');
             $table->decimal('gpa',3,2)->default(1.00);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
