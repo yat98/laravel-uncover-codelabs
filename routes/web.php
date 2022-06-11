@@ -15,3 +15,4 @@ use App\Http\Controllers\StudentController;
 */
 
 Route::get('/', [StudentController::class, 'index']);
+Route::get('process-form', [StudentController::class, 'processForm']);

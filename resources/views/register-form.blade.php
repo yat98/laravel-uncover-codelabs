@@ -13,37 +13,37 @@
             <div class="col-md-8 col-xl-6">
                 <h1>Pendaftaran Mahasiswa</h1>
                 <hr>
-                <form action="{{url('/proses-form')}}" method="GET">
+                <form action="{{url('/process-form')}}" method="GET">
                     <div class="form-group">
                         <label for="nim">NIM</label>
                         <input type="text" class="form-control" id="nim" name="nim">
                     </div>
                     <div class="form-group">
-                        <label for="nama">Nama Lengkap</label>
-                        <input type="text" class="form-control" id="nama" name="nama">
+                        <label for="name">Full Name</label>
+                        <input type="text" class="form-control" id="name" name="name">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="text" class="form-control" id="email" name="email">
                     </div>
                     <div class="form-group">
-                        <label>Jenis Kelamin</label>
+                        <label>Gender</label>
                         <div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin"
-                                id="laki_laki" value="L">
-                                <label class="form-check-label" for="laki_laki">Laki-laki</label>
+                                <input class="form-check-input" type="radio" name="gender"
+                                id="male" value="M">
+                                <label class="form-check-label" for="male">Male</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin"
-                                id="perempuan" value="P">
-                                <label class="form-check-label" for="perempuan">Perempuan</label>
+                                <input class="form-check-input" type="radio" name="gender"
+                                id="female" value="F">
+                                <label class="form-check-label" for="female">Female</label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="jurusan">Jurusan</label>
-                        <select class="form-control" name="jurusan" id="jurusan">
+                        <label for="major">Major</label>
+                        <select class="form-control" name="major" id="major">
                             <option value="Teknik Informatika">Teknik Informatika</option>
                             <option value="Sistem Informasi">Sistem Informasi</option>
                             <option value="Ilmu Komputer">Ilmu Komputer</option>
@@ -52,11 +52,11 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="alamat">Alamat</label>
-                        <textarea class="form-control" id="alamat" rows="3"
-                        name="alamat"></textarea>
+                        <label for="address">Address</label>
+                        <textarea class="form-control" id="address" rows="3"
+                        name="address"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Daftar</button>
+                    <button type="submit" class="btn btn-primary mb-2">Register</button>
                 </form>
             </div>
         </div>
