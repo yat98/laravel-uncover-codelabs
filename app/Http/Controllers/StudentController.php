@@ -55,4 +55,29 @@ class StudentController extends Controller
         ]);
         dump($student);
     }
+
+    public function update(){
+        $student = Student::find(1);
+        $student->birthdate = '2001-02-10';
+        $student->gpa = 4.0;
+        $student->save();
+        dump($student);
+    }
+
+    public function updateWhere(){
+        $student = Student::where('nim','19901162')->first();
+        $student->birthdate = '2001-01-31';
+        $student->gpa = 4.0;
+        $student->save();
+        dump($student);
+    }
+
+    public function massUpdate(){
+        $student = Student::where('nim','19901162')->first();
+        $student->update([
+            'birthdate' => '2001-01-31',
+            'gpa' => 4.0,
+        ]);
+        return 'update success';
+    }
 }
