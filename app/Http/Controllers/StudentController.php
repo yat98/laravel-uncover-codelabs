@@ -80,4 +80,14 @@ class StudentController extends Controller
         ]);
         return 'update success';
     }
+
+    public function delete(){
+        $student = Student::destroy(1);
+        dump($student);
+    }
+
+    public function massDelete(){
+        $student = Student::where('gpa','<',3)->delete();
+        dump($student);
+    }
 }

@@ -25,3 +25,5 @@ Route::get('mass-assignment-two', [StudentController::class, 'massAssignmentTwo'
 Route::get('update', [StudentController::class, 'update']);
 Route::get('update-where', [StudentController::class, 'updateWhere']);
 Route::get('mass-update', [StudentController::class, 'massUpdate']);
+Route::get('delete', [StudentController::class, 'delete']);
+Route::get('mass-delete', [StudentController::class, 'massDelete']);
