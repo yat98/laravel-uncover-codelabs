@@ -13,6 +13,15 @@
             <div class="col-md-8 col-xl-6">
                 <h1>Pendaftaran Mahasiswa</h1>
                 <hr>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul class="mb-0">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form action="{{url('/process-form')}}" method="POST">
                     @csrf
                     <div class="form-group">
