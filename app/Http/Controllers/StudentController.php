@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StudentRequest;
 use Illuminate\Support\Facades\Validator;
 
 class StudentController extends Controller
@@ -51,5 +52,10 @@ class StudentController extends Controller
             echo $request->major.'<br>';
             echo $request->address.'<br>';
         }
+    }
+
+    public function processFormRequest(StudentRequest $request){
+        $validateData = $request->validated();
+        dump($validateData);
     }
 }

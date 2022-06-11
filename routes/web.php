@@ -17,3 +17,4 @@ use App\Http\Controllers\StudentController;
 Route::get('/', [StudentController::class, 'index']);
 Route::post('process-form', [StudentController::class, 'processForm']);
 Route::post('process-form-validator', [StudentController::class, 'processFormValidator']);
+Route::post('process-form-request', [StudentController::class, 'processFormRequest']);
