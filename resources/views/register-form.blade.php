@@ -13,7 +13,8 @@
             <div class="col-md-8 col-xl-6">
                 <h1>Pendaftaran Mahasiswa</h1>
                 <hr>
-                <form action="{{url('/process-form')}}" method="GET">
+                <form action="{{url('/process-form')}}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label for="nim">NIM</label>
                         <input type="text" class="form-control" id="nim" name="nim">
