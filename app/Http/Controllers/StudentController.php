@@ -90,4 +90,56 @@ class StudentController extends Controller
         $student = Student::where('gpa','<',3)->delete();
         dump($student);
     }
+
+    public function all(){
+        $students = Student::all();
+        foreach($students as $student){
+            echo $student->id.'<br>';
+            echo $student->nim.'<br>';
+            echo $student->name.'<br>';
+            echo $student->birthdate.'<br>';
+            echo $student->gpa.'<br>';
+            echo '<hr>';
+        }
+    }
+
+    public function allView(){
+        $students = Student::all();
+        return view('students',compact('students'));
+    }
+
+    public function getWhere(){
+        $students = Student::where('gpa','<',3)
+            ->orderBy('name','desc')
+            ->get();
+        return view('students',compact('students'));
+    }
+
+    public function first(){
+        $students = Student::where('gpa','<',3)
+            ->first();
+        // dump($students);
+        return view('students',['students' => compact('students')]);
+    }
+
+    public function find(){
+        $students = Student::find(3);
+        // dump($students);
+        return view('students',['students' => compact('students')]);
+    }
+
+    public function latest(){
+        $students = Student::latest()
+            ->limit(2)
+            ->get();
+        return view('students',compact('students'));
+    }
+
+    public function skipTake(){
+        $students = Student::oldest('gpa')
+            ->skip(1)
+            ->take(3)
+            ->get();
+        return view('students',compact('students'));
+    }
 }
