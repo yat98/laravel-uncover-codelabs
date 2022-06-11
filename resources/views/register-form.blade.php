@@ -13,58 +13,67 @@
             <div class="col-md-8 col-xl-6">
                 <h1>Pendaftaran Mahasiswa</h1>
                 <hr>
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul class="mb-0">
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <form action="{{url('/process-form')}}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="nim">NIM</label>
-                        <input type="text" class="form-control" id="nim" name="nim">
+                        <input type="text" class="form-control @error('nim') is-invalid @enderror" id="nim" name="nim">
+                        @error('nim')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="name">Full Name</label>
-                        <input type="text" class="form-control" id="name" name="name">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name">
+                        @error('name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" class="form-control" id="email" name="email">
+                        <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email">
+                        @error('email')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label>Gender</label>
-                        <div>
-                            <div class="form-check form-check-inline">
+                        <div class="form-group">
+                            <div class="form-check form-check-inline @error('gender') is-invalid @enderror my-0">
                                 <input class="form-check-input" type="radio" name="gender"
                                 id="male" value="M">
                                 <label class="form-check-label" for="male">Male</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline my-0">
                                 <input class="form-check-input" type="radio" name="gender"
                                 id="female" value="F">
                                 <label class="form-check-label" for="female">Female</label>
                             </div>
+                            @error('gender')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="major">Major</label>
-                        <select class="form-control" name="major" id="major">
+                        <select class="form-control @error('major') is-invalid @enderror" name="major" id="major">
                             <option value="Teknik Informatika">Teknik Informatika</option>
                             <option value="Sistem Informasi">Sistem Informasi</option>
                             <option value="Ilmu Komputer">Ilmu Komputer</option>
                             <option value="Teknik Komputer">Teknik Komputer</option>
                             <option value="Teknik Telekomunikasi">Teknik Telekomunikasi</option>
                         </select>
+                        @error('major')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
-                        <label for="address">Address</label>
+                        <label for="address @error('address') is-invalid @enderror">Address</label>
                         <textarea class="form-control" id="address" rows="3"
                         name="address"></textarea>
+                        @error('address')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Register</button>
                 </form>
