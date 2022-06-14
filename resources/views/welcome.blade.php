@@ -44,6 +44,7 @@
                         </g>
                     </svg>
                 </div>
+                <h1 style="color:#EF3B2D">{{ __('test.title') }}</h1>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2">
