@@ -7,15 +7,9 @@ use Illuminate\Support\Facades\App;
 
 class StudentController extends Controller
 {
-    public function registerFormEn()
+    public function registerForm($locale = 'id')
     {
-        App::setLocale('en');
-        return view('register-form');
-    }
-
-    public function registerFormId()
-    {
-        App::setLocale('id');
+        App::setLocale($locale);
         return view('register-form');
     }
 
