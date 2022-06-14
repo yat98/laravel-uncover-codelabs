@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class StudentController extends Controller
 {
-    public function registerForm()
+    public function registerFormEn()
     {
+        App::setLocale('en');
+        return view('register-form');
+    }
+
+    public function registerFormId()
+    {
+        App::setLocale('id');
         return view('register-form');
     }
 

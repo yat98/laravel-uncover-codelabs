@@ -18,5 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('register-form', [StudentController::class, 'registerForm']);
+Route::get('register-form/en', [StudentController::class, 'registerFormEn']);
+Route::get('register-form/id', [StudentController::class, 'registerFormId']);
 Route::post('process-form', [StudentController::class, 'processForm']);
