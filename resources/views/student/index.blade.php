@@ -11,8 +11,9 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
-                <div class="py-4">
+                <div class="py-4 d-flex justify-content-between align-items-center">
                     <h2>Students</h2>
+                    <a href="" class="btn btn-primary">Add Student</a>
                 </div>
                 <table class="table table-striped">
                     <thead>
@@ -29,7 +30,9 @@
                         @forelse ($students as $student)
                             <tr>
                                 <th>{{$loop->iteration}}</th>
-                                <td>{{$student->nim}}</td>
+                                <td>
+                                    <a href="{{ route('student.show',$student) }}">{{$student->nim}}</a>
+                                </td>
                                 <td>{{$student->name}}</td>
                                 <td>{{$student->gender == 'F'?'Female':'Male'}}</td>
                                 <td>{{$student->major}}</td>
