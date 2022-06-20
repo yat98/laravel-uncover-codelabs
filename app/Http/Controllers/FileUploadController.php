@@ -14,6 +14,10 @@ class FileUploadController extends Controller
         $request->validate([
             'file' => 'required|file|image|max:5000'
         ]);
-        echo $request->file->getClientOriginalName().' Lolos Validasi';
+        // $path = $request->file->store('uploads');
+        // $fileName = $request->file->getClientOriginalName();
+        $fileName = 'yat-'.time().'.'.$request->file->getClientOriginalExtension();
+        $path = $request->file->storeAs('uploads',$fileName);
+        echo 'Success upload file, path '.$path;
     }
 }
