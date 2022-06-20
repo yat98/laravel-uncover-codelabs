@@ -13,8 +13,13 @@
             <div class="col-12">
                 <div class="py-4 d-flex justify-content-between align-items-center">
                     <h2>Students</h2>
-                    <a href="" class="btn btn-primary">Add Student</a>
+                    <a href="{{ route('student.create') }}" class="btn btn-primary">Add Student</a>
                 </div>
+                @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
                 <table class="table table-striped">
                     <thead>
                         <tr>

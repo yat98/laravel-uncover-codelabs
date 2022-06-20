@@ -30,6 +30,7 @@ class StudentController extends Controller
         ]);
 
         Student::create($validateData);
-        return 'Success insert to database';
+        $request->session()->flash('message',"Success add student {$validateData['name']}");
+        return redirect()->route('student.index');
     }
 }
