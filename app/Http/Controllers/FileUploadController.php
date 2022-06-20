@@ -11,15 +11,9 @@ class FileUploadController extends Controller
     }
 
     public function fileUploadProcess(Request $request){
-        if($request->has('file')){
-            echo 'path(): '.$request->file->path().'<br>';
-            echo 'extension(): '.$request->file->extension().'<br>';
-            echo 'getClientOriginalExtension(): '.$request->file->getClientOriginalExtension().'<br>';
-            echo 'getMimeType(): '.$request->file->getMimeType().'<br>';
-            echo 'getClientOriginalName(): '.$request->file->getClientOriginalName().'<br>';
-            echo 'getSize(): '.$request->file->getSize().'<br>';
-        }else{
-            echo 'Empty file upload';
-        }
+        $request->validate([
+            'file' => 'required|file|image|max:5000'
+        ]);
+        echo $request->file->getClientOriginalName().' Lolos Validasi';
     }
 }
