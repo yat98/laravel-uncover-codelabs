@@ -17,7 +17,8 @@ class FileUploadController extends Controller
         // $path = $request->file->store('uploads');
         // $fileName = $request->file->getClientOriginalName();
         $fileName = 'yat-'.time().'.'.$request->file->getClientOriginalExtension();
-        $path = $request->file->storeAs('uploads',$fileName);
-        echo 'Success upload file, path '.$path;
+        $path = $request->file->storeAs('public',$fileName);
+        
+        echo 'Success upload file, <a href="'.asset('storage/'.$fileName).'">storage/'.$fileName.'</a>';
     }
 }
