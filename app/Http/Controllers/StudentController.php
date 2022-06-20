@@ -22,7 +22,7 @@ class StudentController extends Controller
 
     public function store(Request $request){
         $validateData = $request->validate([
-            'nim' => 'required|size:8',
+            'nim' => 'required|size:8|unique:students',
             'name' => 'required|min:3|max:50',
             'gender' => 'required|in:M,F',
             'major' => 'required',
