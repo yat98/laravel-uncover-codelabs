@@ -8,7 +8,12 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     public function index(){
-        return 'Student table here';
+        $students = Student::all();
+        return view('student.index',compact('students'));
+    }
+
+    public function show(Student $student){
+        return view('student.show',compact('student'));
     }
 
     public function create(){
