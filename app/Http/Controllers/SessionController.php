@@ -23,8 +23,29 @@ class SessionController extends Controller
         return "Session created";
     }
 
-    public function get(){
-        
+    public function get(Request $request){
+        echo 'Role: '.session('role');
+        echo '<br>';
+        echo 'Name: '.session('name');
+        echo '<hr>';
+
+        // echo 'Role: '.$request->session()->get('role');
+        // echo '<br>';
+        // echo 'Name: '.$request->session()->get('name');
+        // echo '<hr>';
+
+        // echo 'Role: '.Session::get('role');
+        // echo '<br>';
+        // echo 'Name: '.Session::get('name');
+        // echo '<hr>';
+
+        dump(session()->all());
+        $defaultValueSession = $request->session()->get('city', 'Jakarta');
+        echo 'Session city value is '.$defaultValueSession.'<br>';
+
+        if(session()->has('role')){
+            echo 'Session \'role\' detected: '.session('role');
+        }
     }
 
     public function destroy(){
