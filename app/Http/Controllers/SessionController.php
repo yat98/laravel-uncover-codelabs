@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SessionController extends Controller
 {
@@ -15,8 +16,11 @@ class SessionController extends Controller
         echo '</ul>';
     }
 
-    public function create(){
-        
+    public function create(Request $request){
+        session(['role' => 'admin', 'name' => 'John']);
+        // $request->session()->put('role', 'admin');
+        // Session::put('role', 'admin');
+        return "Session created";
     }
 
     public function get(){
