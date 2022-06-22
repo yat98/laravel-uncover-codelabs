@@ -22,6 +22,20 @@ class FileUploadController extends Controller
 
         // echo 'Success upload file, <a href="'.asset('storage/'.$fileName).'">storage/'.$fileName.'</a>';
         echo 'Success upload file, <a href="'.asset('image/'.$fileName).'">image/'.$fileName.'</a>';
+    }
 
+    public function fileUploadRename(){
+        return view('file-upload-rename');
+    }
+
+    public function fileUploadProcessRename(Request $request){
+        $request->validate([
+            'name' => 'required|min:5|alpha_dash',
+            'file' => 'required|file|image|max:5000'
+        ]);
+        $fileName = $request->name.'.'.$request->file->getClientOriginalExtension();
+        $image = $request->file->storeAs('public/image',$fileName);
+        echo 'Success upload <a href="'.asset('storage/image/'.$fileName).'">'.$fileName.'</a><br>';
+        echo '<img src="'.asset('storage/image/'.$fileName).'" height="200px"/>';
     }
 }
