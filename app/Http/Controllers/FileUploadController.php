@@ -15,10 +15,13 @@ class FileUploadController extends Controller
             'file' => 'required|file|image|max:5000'
         ]);
         // $path = $request->file->store('uploads');
-        // $fileName = $request->file->getClientOriginalName();
-        $fileName = 'yat-'.time().'.'.$request->file->getClientOriginalExtension();
-        $path = $request->file->storeAs('public',$fileName);
-        
-        echo 'Success upload file, <a href="'.asset('storage/'.$fileName).'">storage/'.$fileName.'</a>';
+        $fileName = $request->file->getClientOriginalName();
+        // $fileName = 'yat-'.time().'.'.$request->file->getClientOriginalExtension();
+        // $path = $request->file->storeAs('public',$fileName);
+        $path = $request->file->move('image', $fileName);
+
+        // echo 'Success upload file, <a href="'.asset('storage/'.$fileName).'">storage/'.$fileName.'</a>';
+        echo 'Success upload file, <a href="'.asset('image/'.$fileName).'">image/'.$fileName.'</a>';
+
     }
 }
