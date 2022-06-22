@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('session',[SessionController::class,'index']);
+Route::get('session/create',[SessionController::class,'create']);
+Route::get('session/get',[SessionController::class,'get']);
+Route::get('session/delete',[SessionController::class,'destroy']);
+Route::get('session/flash',[SessionController::class,'flash']);
