@@ -48,8 +48,14 @@ class SessionController extends Controller
         }
     }
 
-    public function destroy(){
-        
+    public function destroy(Request $request){
+        session()->forget('role');
+        // $request->session()->forget('role');
+        // Session::forget('role');
+        session()->flush();
+        // $request->session()->flush();
+        // Session::forget();
+        echo 'All Session has deleted';
     }
 
     public function flash(){
