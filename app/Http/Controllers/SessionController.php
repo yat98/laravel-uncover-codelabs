@@ -58,7 +58,10 @@ class SessionController extends Controller
         echo 'All Session has deleted';
     }
 
-    public function flash(){
-        
+    public function flash(Request $request){
+        session()->flash('role', 'admin');
+        $request->session()->flash('role', 'admin');
+        Session::flash('role', 'admin');
+        echo 'Flash session role created';
     }
 }
