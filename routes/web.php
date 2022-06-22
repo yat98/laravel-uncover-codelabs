@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('student/register', [StudentController::class,'register'])->middleware('test');
 Route::get('student/register', [StudentController::class,'register']);
 Route::get('student/all', [StudentController::class,'all']);
+// Route::get('student/blog', [StudentController::class,'blog'])->middleware('test');
 Route::get('student/blog', [StudentController::class,'blog']);

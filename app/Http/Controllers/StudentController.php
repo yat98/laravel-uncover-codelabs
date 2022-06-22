@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+    public function __construct(){
+        $this->middleware('test')->only('register');
+        $this->middleware('test')->except('all');
+    }
+    
     public function register(){
         return 'Register form';
     }
