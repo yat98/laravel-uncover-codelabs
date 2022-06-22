@@ -16,7 +16,9 @@ class TestMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        dd("TestMiddleware Active");
+        if(time() % 2 == 0){
+            return redirect('student/all');
+        }
         return $next($request);
     }
 }
