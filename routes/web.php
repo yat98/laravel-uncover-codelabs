@@ -22,10 +22,10 @@ Route::get('login', [StudentController::class, 'login']);
 Route::post('login', [StudentController::class, 'getLogin']);
 
 Route::get('logout', [StudentController::class, 'logout']);
-Route::redirect('/', [StudentController::class, 'login']);
+Route::redirect('/', 'login');
 
 Route::middleware('login')->group(function () {
     Route::get('register', [StudentController::class, 'register']);
     Route::get('student', [StudentController::class, 'index']);
-    Route::get('student-blog', [StudentController::class, 'blog']);
+    Route::get('blog', [StudentController::class, 'blog']);
 });
