@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MajorController;
 use App\Http\Controllers\StudentController;
 
 /*
@@ -15,9 +16,8 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MajorController::class,'index'])->middleware('auth');
+Route::resource('majors', MajorController::class)->middleware('auth');
 
 Auth::routes();
 
