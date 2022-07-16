@@ -14,7 +14,8 @@ class MajorController extends Controller
      */
     public function index()
     {
-        //
+        $majors = Major::all();
+        return view('major.index',compact('majors'));
     }
 
     /**
@@ -24,7 +25,7 @@ class MajorController extends Controller
      */
     public function create()
     {
-        //
+        return view('major.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class MajorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'major_name' => 'required',
+            'dean_name' => 'required',
+            'total_student' => 'required|min:10|integer',
+        ]);
+
+        $major = Major::create($validateData);
+        return redirect()->route('majors.index')
+            ->with('message',"Add major {$major->major_name} success");
     }
 
     /**
@@ -46,7 +55,7 @@ class MajorController extends Controller
      */
     public function show(Major $major)
     {
-        //
+        return view('majors.show',compact('major'));
     }
 
     /**
@@ -57,7 +66,7 @@ class MajorController extends Controller
      */
     public function edit(Major $major)
     {
-        //
+        return view('majors.edit',compact('major'));
     }
 
     /**
@@ -69,7 +78,15 @@ class MajorController extends Controller
      */
     public function update(Request $request, Major $major)
     {
-        //
+        $validateData = $request->validate([
+            'major_name' => 'required',
+            'dean_name' => 'required',
+            'total_student' => 'required|min:10|integer',
+        ]);
+
+        $major->update($validateData);
+        return redirect()->route('majors.show',$major)
+            ->with('message',"Update major {$major->major_name} success");
     }
 
     /**
@@ -80,6 +97,8 @@ class MajorController extends Controller
      */
     public function destroy(Major $major)
     {
-        //
+        $major->delete();
+        return redirect()->route('majors.index')
+            ->with('message',"Delete major {$major->major_name} success");
     }
 }
