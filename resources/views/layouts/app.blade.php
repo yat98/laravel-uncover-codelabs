@@ -43,6 +43,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('student.blog') }}">{{ __('Blog Student') }}</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('majors.index') }}">{{ __('List Major') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('majors.create') }}">{{ __('Add Major') }}</a>
+                            </li>
                         @endauth
                     </ul>
 

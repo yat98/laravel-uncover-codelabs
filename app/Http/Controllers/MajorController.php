@@ -15,7 +15,7 @@ class MajorController extends Controller
     public function index()
     {
         $majors = Major::all();
-        return view('major.index',compact('majors'));
+        return view('majors.index',compact('majors'));
     }
 
     /**
@@ -25,7 +25,7 @@ class MajorController extends Controller
      */
     public function create()
     {
-        return view('major.create');
+        return view('majors.create');
     }
 
     /**
@@ -86,7 +86,7 @@ class MajorController extends Controller
 
         $major->update($validateData);
         return redirect()->route('majors.show',$major)
-            ->with('message',"Update major {$major->major_name} success");
+            ->with('message',"Edit major {$major->major_name} success");
     }
 
     /**
