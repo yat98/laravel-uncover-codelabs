@@ -32,9 +32,14 @@
                             <tr>
                                 <th>{{$loop->iteration}}</th>
                                 <td>
-                                <a href="{{ route('majors.show',$major) }}">
+                                @can('show',$major)
+                                    <a href="{{ route('majors.show',$major) }}">
+                                        {{$major->major_name}}
+                                    </a>
+                                @endcan
+                                @cannot('show',$major)
                                     {{$major->major_name}}
-                                </a>
+                                @endcannot
                                 </td>
                                 <td>{{$major->dean_name}}</td>
                                 <td>{{$major->total_student}}</td>

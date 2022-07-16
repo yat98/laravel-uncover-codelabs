@@ -30,7 +30,9 @@ class MajorPolicy
      */
     public function view(User $user, Major $major)
     {
-        //
+        return in_array($user->email,[
+            'admin@gmail.com',
+        ]);
     }
 
     /**

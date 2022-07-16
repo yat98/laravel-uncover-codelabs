@@ -18,6 +18,9 @@ use App\Http\Controllers\StudentController;
 
 Route::get('/', [MajorController::class,'index'])->middleware('auth');
 Route::resource('majors', MajorController::class)->middleware('auth');
+Route::get('majors/{major}', [MajorController::class,'show'])
+    ->middleware(['auth','can:view,major'])
+    ->name('majors.show');
 
 Auth::routes();
 
