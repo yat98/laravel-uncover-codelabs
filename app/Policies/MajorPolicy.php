@@ -41,7 +41,12 @@ class MajorPolicy
      */
     public function create(User $user)
     {
-        //
+        // return $user->email === 'admin@gmail.com';
+        // return $user->email === 'admin@gmail.com' || $user->mail === 'support@gmail.com';
+        return in_array($user->email,[
+            'admin@gmail.com',
+            'support@gmail.com'
+        ]);
     }
 
     /**

@@ -36,6 +36,7 @@ class MajorController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create',Major::class);
         $validateData = $request->validate([
             'major_name' => 'required',
             'dean_name' => 'required',
