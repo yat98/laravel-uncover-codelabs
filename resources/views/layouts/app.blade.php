@@ -46,9 +46,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('majors.index') }}">{{ __('List Major') }}</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('majors.create') }}">{{ __('Add Major') }}</a>
-                            </li>
+                            @can('create','App\Models\Major')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('majors.create') }}">{{ __('Add Major') }}</a>
+                                </li>
+                            @endcan
                         @endauth
                     </ul>
 

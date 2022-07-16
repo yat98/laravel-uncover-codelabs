@@ -6,9 +6,11 @@
             <div class="col-12">
                 <div class="py-4 d-flex justify-content-between align-items-center">
                     <h1 class="h2">List Major</h1>
-                    <a href="{{route('majors.create')}}" class="btn btn-primary">
-                        Add Major
-                    </a>
+                    @can('create','App\Models\Major')
+                        <a href="{{route('majors.create')}}" class="btn btn-primary">
+                            Add Major
+                        </a>
+                    @endcan
                 </div>
                 <hr>
                 @if(session()->has('message'))
