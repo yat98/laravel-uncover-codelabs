@@ -8,11 +8,13 @@
                     <h1 class="h2">Information Major {{$major->major_name}}</h1>
                     <div>
                         <a href="{{route('majors.edit',$major)}}" class="btn btn-primary">Edit</a>
-                        <form action="{{route('majors.destroy',$major)}}" method="POST" class="d-inline-block">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit" class="btn btn-danger ml-3">Delete</button>
-                        </form>
+                        @can('delete',$major)
+                            <form action="{{route('majors.destroy',$major)}}" method="POST" class="d-inline-block">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger ml-3">Delete</button>
+                            </form>
+                        @endcan
                     </div>
                 </div>
                 <hr>

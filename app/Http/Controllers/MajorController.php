@@ -98,6 +98,7 @@ class MajorController extends Controller
      */
     public function destroy(Major $major)
     {
+        $this->authorize('delete',$major);
         $major->delete();
         return redirect()->route('majors.index')
             ->with('message',"Delete major {$major->major_name} success");

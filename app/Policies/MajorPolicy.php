@@ -70,7 +70,9 @@ class MajorPolicy
      */
     public function delete(User $user, Major $major)
     {
-        //
+        return in_array($user->email,[
+            'admin@gmail.com',
+        ]);
     }
 
     /**
