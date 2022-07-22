@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Str;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -49,10 +50,19 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $birthdate = $data["year"].str_pad($data["month"],2,0,STR_PAD_LEFT).
+            str_pad($data["date"],2,0,STR_PAD_LEFT);
+        $data['birthdate'] = $birthdate;
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'birthdate' => ['required', 'date', 'before:-10years','after:-100years'],
+            'job' => ['sometimes', 'nullable', 'string', 'max:255'],
+            'city' => ['sometimes', 'nullable', 'string', 'max:255'],
+            'bio'  => ['sometimes', 'nullable', 'string'],
+            'profile_picture' => ['sometimes', 'file', 'image', 'max:2000'],
+            'background_picture' => ['required', 'integer', 'min:1', 'max:12']
         ]);
     }
 
@@ -64,10 +74,31 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $birthdate = $data["year"].str_pad($data["month"],2,0,STR_PAD_LEFT).
+        str_pad($data["date"],2,0,STR_PAD_LEFT);
+
+        $request = request();
+
+        if($request->hasFile('profile_picture')){
+            $slug = Str::slug($data['name']);
+            $extFile = $request->profile_picture->getClientOriginalExtension();
+            $fileName = $slug.'-'.time().'.'.$extFile;
+            $request->profile_picture->storeAs('public/uploads',$fileName);
+        } else {
+            $fileName = 'default_profile.jpg';
+        }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'name' => $data['name'],
+            'birthdate' => $birthdate,
+            'job' => $data['job'],
+            'city' => $data['city'],
+            'bio' => $data['bio'],
+            'picture_profile' => $fileName,
+            'background_picture' => $data['background_picture'],
         ]);
     }
 }
