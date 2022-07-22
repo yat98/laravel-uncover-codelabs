@@ -18,9 +18,10 @@
         <div class="col-md-8">
             <h1>{{ __('Register Form') }}</h1>
             <hr>
-            <form method="POST" action="{{ route('register') }}" gi>
-                @csrf
-                @include('layouts.form',['button-title' => 'Register'])
+            <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                <div class="text-md-end">
+                    @include('layouts.form',['buttonTitle' => 'Register'])
+                </div>
             </form>
         </div>
     </div>
