@@ -2,7 +2,7 @@
 <div class="input-group row mb-3">
   <label for="email" class="col-md-3 col-form-label">
     Email * </label>
-  <div class="col-md-6 mx-auto">
+  <div class="col-md-6 mx-auto text-start">
     <input id="email" type="email"
     class="form-control @error('email') is-invalid @enderror"
     name="email" value="{{ old('email') ?? $user->email ?? '' }}"
@@ -21,7 +21,7 @@
 <div class="input-group row mb-3">
   <label for="password" class="col-md-3 col-form-label text-md-end">
   Password *</label>
-  <div class="col-md-6 mx-auto">
+  <div class="col-md-6 mx-auto text-start">
     <input id="password" type="password"
     class="form-control @error('password') is-invalid @enderror"
     name="password" autocomplete="new-password">
@@ -36,7 +36,7 @@
 <div class="input-group row mb-3">
   <label for="password-confirm" class="col-md-3 col-form-label text-md-end">
   Password Confirm *</label>
-  <div class="col-md-6 mx-auto">
+  <div class="col-md-6 mx-auto text-start">
     <input id="password-confirm" type="password" class="form-control"
     name="password_confirmation" autocomplete="new-password">
   </div>
@@ -47,7 +47,7 @@
 <div class="input-group row mb-3">
   <label for="nama" class="col-md-3 col-form-label text-md-end">
   Name *</label>
-  <div class="col-md-6 mx-auto">
+  <div class="col-md-6 mx-auto text-start">
     <input id="name" type="text" autocomplete="name"
     class="form-control @error('name') is-invalid @enderror"
     name="name" value="{{ old('name') ?? $user->name ?? '' }}">
@@ -63,7 +63,7 @@
   <label for="birthdate" class="col-md-3 col-form-label text-md-end">
   Birthdate *</label>
   
-  <div class="col-md-6 row mx-auto px-0">
+  <div class="col-md-6 row mx-auto px-0 text-start">
     <div class="col-3">
       <input type="number" name="tgl" id="tgl"
       class="form-control d-inline
@@ -105,7 +105,7 @@
 <div class="input-group row mb-3">
   <label for="job" class="col-md-3 col-form-label text-md-right">
   Job </label>
-  <div class="col-md-6 mx-auto">
+  <div class="col-md-6 mx-auto text-start">
     <input id="job" type="text"
     class="form-control @error('job') is-invalid @enderror"
     name="job" value="{{ old('job') ?? $user->job ?? '' }}">
@@ -117,9 +117,9 @@
   </div>
 </div>
 
-<div class="input-group row">
+<div class="input-group row mb-3">
   <label for="city" class="col-md-3 col-form-label text-md-right">City </label>
-  <div class="col-md-6 mx-auto">
+  <div class="col-md-6 mx-auto text-start">
     <input id="city" type="text"
     class="form-control @error('city') is-invalid @enderror"
     name="city" value="{{ old('city') ?? $user->city ?? ''}}">
@@ -131,10 +131,11 @@
   </div>
 </div>
 
-<div class="input-group row">
+
+<div class="input-group row mb-3">
   <label for="bio" class="col-md-3 col-form-label text-md-right">
   Bio </label>
-  <div class="col-md-6 mx-auto">
+  <div class="col-md-6 mx-auto text-start">
     <textarea class="form-control" id="bio" name="bio"
     placeholder = "Bio singkat anda...">{{
       old('bio') ?? $user->bio ?? ''
@@ -150,10 +151,13 @@
 <div class="input-group row mb-3">
   <label for="profile_picture" class="col-md-3 col-form-label text-md-right">
   Profil Picture</label>
-  <div class="col-md-6 mx-auto">
+  <div class="col-md-6 mx-auto text-start">
     <div class="custom-file">
       <input type="file" id="profile_picture" name="profile_picture" accept="image/*"
       class="custom-file-input form-control @error('profile_picture') is-invalid @enderror" value="{{ $user->profile_picture ?? ''}}">
+      <label class="custom-file-label col-md-12" for="gambar_profil" onchange="$('#gambar_profil').val($(this).val());">
+        {{ $user->gambar_profil ?? 'Pilih gambar...'}}
+      </label>
       @error('profile_picture')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -166,7 +170,7 @@
 <div class="input-group row mb-3">
   <label for="background_picture" class="col-md-3  text-md-right">
   Background Picture</label>
-  <div class="col-md-6 row mx-auto">
+  <div class="col-md-6 row mx-auto text-start">
     <select name="background_picture" class="custom-select form-control 
     @error('background_picture') is-invalid @enderror" id="background_picture" >
       @for ($i = 1; $i <= 12; $i++)
