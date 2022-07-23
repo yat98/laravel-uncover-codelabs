@@ -19,6 +19,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::get('users/{user}/edit',[UserController::class,'edit']);
-Route::patch('users/{user}',[UserController::class,'update']);
-Route::delete('users/{user}',[UserController::class,'destroy']);
+Route::get('users/{user}/edit',[UserController::class,'edit'])->middleware('can:,update,user');
+Route::patch('users/{user}',[UserController::class,'update'])->middleware('can:,update,user');
+Route::delete('users/{user}',[UserController::class,'destroy'])->middleware('can:delete,user');
