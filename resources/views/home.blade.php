@@ -15,23 +15,19 @@
                 @if(session()->get('message')== 'update')
                 <div class="alert alert-success alert-dismissible w-50 mx-auto
                            fade show">
-                  Data <b>{{session()->get('nama')}}</b> update success
-                  <button type="button" class="close" data-dismiss="alert">
-                      <span>&times;</span>
-                  </button>
+                  Data <b>{{session()->get('name')}}</b> update success
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 @endif
                 @if(session()->get('message')== 'delete')
                 <div class="alert alert-danger alert-dismissible w-50 mx-auto
                            fade show">
                   Data <b>{{session()->get('name')}}</b> deleted
-                  <button type="button" class="close" data-dismiss="alert">
-                      <span>&times;</span>
-                  </button>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 @endif
               @endif
-    
+
           </div>
         </div>
     
