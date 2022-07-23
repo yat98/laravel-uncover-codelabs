@@ -16,3 +16,12 @@ $('.pilihan-background-profil').click(function(){
     let nomorGambar = this.children[0].innerHTML;
     $('#background_picture').val(nomorGambar);
 })
+
+$('.btn-hapus').click(function(){
+    let idHapus = $(this).attr('data-id');
+    $("#deleteForm").attr('action', '/users/'+idHapus);
+})
+
+$('#deleteForm [type="submit"]').click(function(){
+    $("#deleteForm").submit();
+})

@@ -73,7 +73,7 @@
                         <a href="{{ url('/users/'.$user->id.'/edit')}}"
                            class="btn btn-primary d-inline-block">Edit</a>
                         <button class="btn btn-danger btn-hapus" data-id="{{$user->id}}"
-                          data-toggle="modal" data-target="#DeleteModal">Delete</button>
+                          data-bs-toggle="modal" data-bs-target="#DeleteModal">Delete</button>
                       </div>
                       @endcan
                     </div>
@@ -87,26 +87,25 @@
     </section>
     <div id="DeleteModal" class="modal fade" role="dialog">
       <div class="modal-dialog ">
-      <!-- Modal content-->
+        <!-- Modal content-->
         <form action="" id="deleteForm" method="post">
-        @csrf
-        @method('DELETE')
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title text-center">Confirm</h4>
-            <button type="button" class="close" data-dismiss="modal">
-            &times;</button>
-          </div>
-          <div class="modal-body">
-            <p class="text-center">Are you sure to delete this user?</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-success" data-dismiss="modal">
-                Cancel</button>
-            <button type="submit" class="btn btn-danger" data-dismiss="modal">
-                Yes, Delete</button>
-          </div>
-        </div>
+            @csrf
+            @method('DELETE')
+            <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-center">Confirm</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">Are you sure to delete this user?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">
+                    Cancel</button>
+                <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">
+                    Yes, Delete</button>
+            </div>
+            </div>
         </form>
       </div>
     </div>
