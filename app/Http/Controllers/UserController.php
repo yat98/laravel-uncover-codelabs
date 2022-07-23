@@ -49,4 +49,12 @@ class UserController extends Controller
             'message' => 'update', 'name' => $user->name
         ]);
     }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return redirect('/#member-list')->with([
+            'message' => 'delete', 'name' => $user->name
+        ]);
+    }
 }
