@@ -11,9 +11,9 @@ class UserController extends Controller
     {
         $time = strtotime($user->birthdate);
 
-        $user['day'] = date('d',$time);
+        $user['date'] = date('d',$time);
         $user['month'] = date('m',$time);
-        $user['year'] = date('y',$time);
+        $user['year'] = date('Y',$time);
 
         return view('user.edit', compact('user'));
     }

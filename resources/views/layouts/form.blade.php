@@ -1,6 +1,6 @@
 @csrf
 <div class="input-group row mb-3">
-  <label for="email" class="col-md-3 col-form-label">
+  <label for="email" class="col-md-3 col-form-label text-md-end">
     Email * </label>
   <div class="col-md-8 mx-auto text-start">
     <input id="email" type="email"
@@ -106,7 +106,7 @@
 </div>
 
 <div class="input-group row mb-3">
-  <label for="job" class="col-md-3 col-form-label text-md-right">
+  <label for="job" class="col-md-3 col-form-label text-md-end">
   Job </label>
   <div class="col-md-8 mx-auto text-start">
     <input id="job" type="text"
@@ -121,7 +121,7 @@
 </div>
 
 <div class="input-group row mb-3">
-  <label for="city" class="col-md-3 col-form-label text-md-right">City </label>
+  <label for="city" class="col-md-3 col-form-label text-md-end">City </label>
   <div class="col-md-8 mx-auto text-start">
     <input id="city" type="text"
     class="form-control @error('city') is-invalid @enderror"
@@ -136,7 +136,7 @@
 
 
 <div class="input-group row mb-3">
-  <label for="bio" class="col-md-3 col-form-label text-md-right">
+  <label for="bio" class="col-md-3 col-form-label text-md-end">
   Bio </label>
   <div class="col-md-8 mx-auto text-start">
     <textarea class="form-control @error('bio') is-invalid @enderror" id="bio" name="bio"
@@ -152,14 +152,14 @@
 </div>
 
 <div class="input-group row mb-3">
-  <label for="profile_picture" class="col-md-3 col-form-label text-md-right">
+  <label for="profile_picture" class="col-md-3 col-form-label text-md-end">
   Profil Picture</label>
   <div class="col-md-8 mx-auto text-start">
     <div class="custom-file">
       <input type="file" id="profile_picture" name="profile_picture" accept="image/*"
       class="custom-file-input form-control @error('profile_picture') is-invalid @enderror" value="{{ $user->profile_picture ?? ''}}">
       <label class="custom-file-label col-md-12" for="gambar_profil" onchange="$('#gambar_profil').val($(this).val());">
-        {{ $user->gambar_profil ?? 'Pilih gambar...'}}
+        {{ $user->profile_picture ?? 'Pilih gambar...'}}
       </label>
       @error('profile_picture')
         <span class="invalid-feedback" role="alert">
@@ -171,7 +171,7 @@
 </div>
 
 <div class="input-group row mb-3">
-  <label for="background_picture" class="col-md-3  text-md-right">
+  <label for="background_picture" class="col-md-3  text-md-end">
   Background Picture</label>
   <div class="col-md-8 row mx-auto text-start">
     <select name="background_picture" class="custom-select form-control 
