@@ -97,7 +97,7 @@ class RegisterController extends Controller
             'job' => $data['job'],
             'city' => $data['city'],
             'bio' => $data['bio'],
-            'picture_profile' => $fileName,
+            'profile_picture' => $fileName,
             'background_picture' => $data['background_picture'],
         ]);
     }
