@@ -78,7 +78,6 @@ class RegisterController extends Controller
         str_pad($data["date"],2,0,STR_PAD_LEFT);
 
         $request = request();
-
         if($request->hasFile('profile_picture')){
             $slug = Str::slug($data['name']);
             $extFile = $request->profile_picture->getClientOriginalExtension();
@@ -87,6 +86,7 @@ class RegisterController extends Controller
         } else {
             $fileName = 'default_profile.jpg';
         }
+
 
         return User::create([
             'name' => $data['name'],

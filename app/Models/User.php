@@ -25,7 +25,7 @@ class User extends Authenticatable
         'job',
         'city',
         'bio',
-        'picture_profile',
+        'profile_picture',
         'background_picture',
     ];
 
